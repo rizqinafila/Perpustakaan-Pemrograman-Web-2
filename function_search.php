@@ -10,8 +10,12 @@
 <body>
     <div class="container mt-5">
         <h1 class="mb-4"><i class="bi bi-search"></i> Function Search Buku</h1>
+<<<<<<< HEAD
         
         <?php
+=======
+        <?php 
+
         // Data buku
         $buku_list = [
             [
@@ -60,19 +64,30 @@
                 "stok" => 3
             ]
         ];
+<<<<<<< HEAD
         
+=======
+
+
         // ========== SEARCH FUNCTIONS ==========
         
         // 1. Cari buku by kode
         function cari_by_kode($buku_list, $kode) {
             foreach ($buku_list as $buku) {
                 if ($buku["kode"] == $kode) {
+HEAD
                     return $buku;  // Return buku jika ketemu
                 }
             }
             return null;  // Return null jika tidak ketemu
         }
-        
+
+                    return $buku;  // return buku jika ketemu
+                }
+            }
+            return null;  // return null jika tidak ketemu
+        }
+
         // 2. Cari buku by judul (partial match, case insensitive)
         function cari_by_judul($buku_list, $keyword) {
             $hasil = [];
@@ -83,7 +98,9 @@
             }
             return $hasil;
         }
+ HEAD
         
+
         // 3. Cari buku by kategori
         function cari_by_kategori($buku_list, $kategori) {
             $hasil = [];
@@ -94,7 +111,9 @@
             }
             return $hasil;
         }
-        
+HEAD
+
+
         // 4. Cari buku by pengarang
         function cari_by_pengarang($buku_list, $pengarang) {
             $hasil = [];
@@ -105,7 +124,7 @@
             }
             return $hasil;
         }
-        
+HEAD
         // 5. Cari buku by range harga
         function cari_by_range_harga($buku_list, $min, $max) {
             $hasil = [];
@@ -116,7 +135,9 @@
             }
             return $hasil;
         }
-        
+HEAD
+
+
         // 6. Cari buku tersedia (stok > 0)
         function cari_buku_tersedia($buku_list) {
             $hasil = [];
@@ -127,7 +148,9 @@
             }
             return $hasil;
         }
-        
+ HEAD
+
+
         // 7. Cari buku terbaru (tahun terbit)
         function cari_buku_terbaru($buku_list, $tahun) {
             $hasil = [];
@@ -138,7 +161,8 @@
             }
             return $hasil;
         }
-        
+ HEAD
+
         // Helper function untuk tampilkan hasil
         function tampilkan_hasil($hasil, $judul_pencarian) {
             if (count($hasil) > 0) {
@@ -187,7 +211,8 @@
             }
         }
         ?>
-        
+HEAD
+
         <!-- Pencarian by Kode -->
         <div class="card mb-4">
             <div class="card-header bg-primary text-white">
@@ -220,7 +245,7 @@
                 ?>
             </div>
         </div>
-        
+HEAD
         <!-- Pencarian by Judul -->
         <div class="card mb-4">
             <div class="card-header bg-success text-white">
@@ -234,7 +259,9 @@
                 ?>
             </div>
         </div>
-        
+HEAD
+
+
         <!-- Pencarian by Kategori -->
         <div class="card mb-4">
             <div class="card-header bg-info text-white">
@@ -248,7 +275,9 @@
                 ?>
             </div>
         </div>
-        
+HEAD
+
+
         <!-- Pencarian by Pengarang -->
         <div class="card mb-4">
             <div class="card-header bg-warning">
@@ -262,7 +291,9 @@
                 ?>
             </div>
         </div>
-        
+ HEAD
+
+
         <!-- Pencarian by Range Harga -->
         <div class="card mb-4">
             <div class="card-header bg-danger text-white">
@@ -305,7 +336,9 @@
             </div>
         </div>
     </div>
-    
+HEAD
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

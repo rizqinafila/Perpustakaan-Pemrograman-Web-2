@@ -1,11 +1,16 @@
+<<<<<<< HEAD
 <?php
 // ========== LIBRARY FUNCTIONS PERPUSTAKAAN ==========
- 
+<?php 
+// ========== LIBRARY FUNCTIONS PERPUSTAKAAN ==========
+
+
 // 1. Format Rupiah
 function format_rupiah($angka) {
     return "Rp " . number_format($angka, 0, ',', '.');
 }
- 
+HEAD
+
 // 2. Hitung Total Stok
 function hitung_total_stok($buku_list) {
     $total = 0;

@@ -9,10 +9,17 @@
 </head>
 <body>
     <div class="container mt-5">
+<<<<<<< HEAD
         <h1 class="mb-4"><i class="bi bi-code-square"></i> Function untuk Display Buku</h1>
         
         <?php
         // Data buku
+
+        <h1 class="mb-4"><i class="bi bi-code-square"></i> Function Untuk Display Buku</h1>
+
+        <?php 
+         // Data buku
+
         $buku_list = [
             [
                 "kode" => "BK-001",
@@ -45,6 +52,7 @@
                 "stok" => 0
             ]
         ];
+<<<<<<< HEAD
         
         // ========== FUNCTION DEFINITIONS ==========
         
@@ -58,12 +66,30 @@
             if ($stok == 0) {
                 return '<span class="badge bg-danger">Habis</span>';
             } elseif ($stok < 5) {
+=======
+        // ========== FUNCTION DEFINITIONS ==========
+
+        // 1. Function untuk format rupiah
+        function format_rupiah($angka){
+            return "Rp " . number_format($angka,0,',','.');
+        }
+
+        // function badge status stok
+        function badge_stok($stok){
+            if ($stok == 0){
+                return '<span class="badge bg-danger">Habis</span>';
+            } elseif($stok < 5){
+
                 return '<span class="badge bg-warning">Menipis</span>';
             } else {
                 return '<span class="badge bg-success">Tersedia</span>';
             }
         }
+<<<<<<< HEAD
         
+=======
+
+
         // 3. Function untuk badge kategori
         function badge_kategori($kategori) {
             $warna = "secondary";
@@ -87,10 +113,17 @@
                     $icon = "wifi";
                     break;
             }
+<<<<<<< HEAD
             
             return "<span class='badge bg-$warna'><i class='bi bi-$icon'></i> $kategori</span>";
         }
         
+=======
+
+            return "<span class='badge bg-$warna'><i class='bi bi-$icon'></i> $kategori</span>";
+        }
+
+
         // 4. Function untuk tampilkan card buku
         function tampilkan_card_buku($buku) {
             $html = '<div class="card mb-3">';
@@ -111,7 +144,11 @@
             $html .= '</table>';
             $html .= '</div>';
             $html .= '<div class="col-md-4 text-end">';
+<<<<<<< HEAD
             
+=======
+
+
             if ($buku["stok"] > 0) {
                 $html .= '<button class="btn btn-success"><i class="bi bi-cart-plus"></i> Pinjam</button>';
             } else {
@@ -125,7 +162,11 @@
             
             return $html;
         }
+<<<<<<< HEAD
         
+=======
+
+
         // 5. Function untuk tampilkan row tabel
         function tampilkan_row_tabel($buku, $nomor) {
             $html = '<tr>';
@@ -141,7 +182,11 @@
             
             return $html;
         }
+<<<<<<< HEAD
         
+=======
+
+
         // 6. Function untuk hitung total stok
         function hitung_total_stok($buku_list) {
             $total = 0;
@@ -150,7 +195,11 @@
             }
             return $total;
         }
+<<<<<<< HEAD
         
+=======
+
+
         // 7. Function untuk hitung total nilai
         function hitung_total_nilai($buku_list) {
             $total = 0;
@@ -159,21 +208,36 @@
             }
             return $total;
         }
+<<<<<<< HEAD
         
         // 8. Function untuk filter buku berdasarkan kategori
         function filter_kategori($buku_list, $kategori) {
             $hasil = [];
             foreach ($buku_list as $buku) {
                 if ($buku["kategori"] == $kategori) {
+=======
+
+        // 8. Function untuk filter Buku berdasarkan kategori
+        function filter_kategori($buku_list, $kategori){
+            $hasil = [];
+            foreach($buku_list as $buku){
+                if($buku["kategori"] == $kategori){
+
                     $hasil[] = $buku;
                 }
             }
             return $hasil;
         }
         ?>
+<<<<<<< HEAD
         
         <!-- Tampilkan dengan Card -->
         <div class="card mb-4">
+=======
+
+        <!-- Tampilkan dengan Card -->
+         <div class="card mb-4">
+
             <div class="card-header bg-primary text-white">
                 <h5 class="mb-0">1. Tampilan Card (Menggunakan Function)</h5>
             </div>
@@ -182,9 +246,15 @@
                     <?php echo tampilkan_card_buku($buku); ?>
                 <?php endforeach; ?>
             </div>
+<<<<<<< HEAD
         </div>
         
         <!-- Tampilkan dengan Tabel -->
+=======
+         </div>
+
+         <!-- Tampilkan dengan Tabel -->
+
         <div class="card mb-4">
             <div class="card-header bg-success text-white">
                 <h5 class="mb-0">2. Tampilan Tabel (Menggunakan Function)</h5>
@@ -214,7 +284,11 @@
                 </table>
             </div>
         </div>
+<<<<<<< HEAD
         
+=======
+
+
         <!-- Statistik menggunakan Function -->
         <div class="card mb-4">
             <div class="card-header bg-info text-white">
@@ -249,13 +323,18 @@
                 </div>
             </div>
         </div>
+<<<<<<< HEAD
         
+=======
+
+
         <!-- Filter dengan Function -->
         <div class="card">
             <div class="card-header bg-warning">
                 <h5 class="mb-0">4. Filter Kategori (Menggunakan Function)</h5>
             </div>
             <div class="card-body">
+<<<<<<< HEAD
                 <?php
                 $buku_programming = filter_kategori($buku_list, "Programming");
                 $buku_database = filter_kategori($buku_list, "Database");
@@ -268,6 +347,20 @@
                     <?php endforeach; ?>
                 </ul>
                 
+=======
+                <?php 
+                $buku_programming = filter_kategori($buku_list, "Programming");
+                $buku_database = filter_kategori($buku_list, "Database");
+                ?>
+
+                <h6>Buku Kategori Programming: <span class="badge bg-primary"><?php echo count($buku_programming); ?></span></h6>
+                <ul>
+                    <?php foreach($buku_programming as $buku): ?>
+                        <li><?php echo $buku["judul"]; ?> - <?php echo format_rupiah($buku["harga"]); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+
+
                 <h6>Buku Kategori Database: <span class="badge bg-success"><?php echo count($buku_database); ?></span></h6>
                 <ul>
                     <?php foreach ($buku_database as $buku): ?>
@@ -277,7 +370,11 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     
+=======
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
