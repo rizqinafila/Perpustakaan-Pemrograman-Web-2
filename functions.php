@@ -1,15 +1,10 @@
-<<<<<<< HEAD
 <?php
 // ========== LIBRARY FUNCTIONS PERPUSTAKAAN ==========
-<?php 
-// ========== LIBRARY FUNCTIONS PERPUSTAKAAN ==========
-
 
 // 1. Format Rupiah
 function format_rupiah($angka) {
     return "Rp " . number_format($angka, 0, ',', '.');
 }
-HEAD
 
 // 2. Hitung Total Stok
 function hitung_total_stok($buku_list) {
@@ -19,7 +14,7 @@ function hitung_total_stok($buku_list) {
     }
     return $total;
 }
- 
+
 // 3. Hitung Total Nilai Inventaris
 function hitung_total_nilai($buku_list) {
     $total = 0;
@@ -28,7 +23,7 @@ function hitung_total_nilai($buku_list) {
     }
     return $total;
 }
- 
+
 // 4. Hitung Rata-rata Harga
 function hitung_rata_rata_harga($buku_list) {
     if (count($buku_list) == 0) return 0;
@@ -39,7 +34,7 @@ function hitung_rata_rata_harga($buku_list) {
     }
     return $total_harga / count($buku_list);
 }
- 
+
 // 5. Cari Buku Termahal
 function cari_buku_termahal($buku_list) {
     if (count($buku_list) == 0) return null;
@@ -52,7 +47,7 @@ function cari_buku_termahal($buku_list) {
     }
     return $termahal;
 }
- 
+
 // 6. Cari Buku Termurah
 function cari_buku_termurah($buku_list) {
     if (count($buku_list) == 0) return null;
@@ -65,7 +60,7 @@ function cari_buku_termurah($buku_list) {
     }
     return $termurah;
 }
- 
+
 // 7. Hitung Jumlah by Kategori
 function hitung_by_kategori($buku_list, $kategori) {
     $count = 0;
@@ -76,7 +71,7 @@ function hitung_by_kategori($buku_list, $kategori) {
     }
     return $count;
 }
- 
+
 // 8. Hitung Persentase Stok Tersedia
 function hitung_persentase_tersedia($buku_list) {
     if (count($buku_list) == 0) return 0;
@@ -89,7 +84,7 @@ function hitung_persentase_tersedia($buku_list) {
     }
     return ($tersedia / count($buku_list)) * 100;
 }
- 
+
 // 9. Filter Buku by Stok Minimum
 function filter_stok_minimum($buku_list, $min_stok) {
     $hasil = [];
@@ -100,11 +95,11 @@ function filter_stok_minimum($buku_list, $min_stok) {
     }
     return $hasil;
 }
- 
+
 // 10. Sort Buku by Harga
 function sort_by_harga($buku_list, $ascending = true) {
     $sorted = $buku_list;
-    
+
     for ($i = 0; $i < count($sorted) - 1; $i++) {
         for ($j = 0; $j < count($sorted) - $i - 1; $j++) {
             if ($ascending) {
@@ -122,10 +117,10 @@ function sort_by_harga($buku_list, $ascending = true) {
             }
         }
     }
-    
+
     return $sorted;
 }
- 
+
 // 11. Generate Laporan Statistik
 function generate_laporan($buku_list) {
     return [
@@ -138,27 +133,27 @@ function generate_laporan($buku_list) {
         "persentase_tersedia" => hitung_persentase_tersedia($buku_list)
     ];
 }
- 
+
 // 12. Validasi Data Buku
 function validasi_buku($buku) {
     $errors = [];
-    
+
     if (empty($buku["judul"])) {
         $errors[] = "Judul tidak boleh kosong";
     }
-    
+
     if (empty($buku["pengarang"])) {
         $errors[] = "Pengarang tidak boleh kosong";
     }
-    
+
     if (!isset($buku["harga"]) || $buku["harga"] < 0) {
         $errors[] = "Harga tidak valid";
     }
-    
+
     if (!isset($buku["stok"]) || $buku["stok"] < 0) {
         $errors[] = "Stok tidak valid";
     }
-    
+
     return $errors;
 }
 ?>
